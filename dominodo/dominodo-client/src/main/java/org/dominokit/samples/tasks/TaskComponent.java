@@ -130,7 +130,7 @@ public class TaskComponent extends BaseDominoElement<HTMLDivElement, TaskCompone
                         .setTooltip("Pick Due date")
                         .hideOn(ScreenMedia.SMALL_AND_DOWN)
                         .apply(dateIcon -> datePickerPopup = Popover.createPicker(dateIcon, datePicker)
-                                .position(PopupPosition.BOTTOM)
+                                .position(PopupPosition.TOP_DOWN)
                                 .styler(style -> style.setMaxWidth("300px"))))
                         .addClickListener(evt -> datePickerPopup.show()))
                 .addHeaderAction(getStatusAction(task))
