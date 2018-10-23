@@ -150,15 +150,15 @@ public class TaskComponent extends BaseDominoElement<HTMLDivElement, TaskCompone
         return DropDownMenu.create(element)
                 .setPosition(DropDownPosition.BOTTOM_LEFT)
                 .addAction(DropdownAction.<String>create("Toggle priority")
-                        .addSelectionHandler(this::updatePriority))
+                        .addSelectionHandler(value -> updatePriority()))
                 .addAction(DropdownAction.<String>create("Delete")
-                        .addSelectionHandler(this::showConfirmationDialog))
+                        .addSelectionHandler(value -> showConfirmationDialog()))
                 .addAction(DropdownAction.<String>create("Edit")
-                        .addSelectionHandler(() -> taskUiHandlers.onEditTask(task)))
+                        .addSelectionHandler( value -> taskUiHandlers.onEditTask(task)))
                 .addAction(DropdownAction.<String>create("Attach")
-                        .addSelectionHandler(() -> AttachDialogComponent.create(FileUploadComponent.create(TaskComponent.this), this::update).open()))
+                        .addSelectionHandler(value -> AttachDialogComponent.create(FileUploadComponent.create(TaskComponent.this), this::update).open()))
                 .addAction(DropdownAction.<String>create("Pick due date")
-                        .addSelectionHandler(() -> {
+                        .addSelectionHandler(value -> {
                             ModalDialog modal = datePicker
                                     .createModal("Duew date")
                                     .appendChild(datePicker)
@@ -168,7 +168,7 @@ public class TaskComponent extends BaseDominoElement<HTMLDivElement, TaskCompone
                             });
                         }))
                 .addAction(DropdownAction.<String>create(task.isActive() ? "Resolve" : "Unresolve")
-                        .addSelectionHandler(() -> {
+                        .addSelectionHandler(value -> {
                             if (task.isActive()) {
                                 resolve();
                             } else {
