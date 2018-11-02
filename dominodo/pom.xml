@@ -37,10 +37,10 @@
         <configuration>
           <launcherDir>${project.build.directory}/gwt/launcherDir</launcherDir>
           <codeserverArgs>
-            <codeserverArg>-src</codeserverArg>
-            <codeserverArg>/mnt/CODE/GIT/domino-kit/domino-ui/src/main/java</codeserverArg>
-            <!--<codeserverArg>-bindAddress</codeserverArg>-->
-            <!--<codeserverArg>192.168.1.9</codeserverArg>-->
+            <!--<codeserverArg>-src</codeserverArg>-->
+            <!--<codeserverArg>/mnt/CODE/GIT/domino-kit/domino-ui/src/main/java</codeserverArg>-->
+            <!--&lt;!&ndash;<codeserverArg>-bindAddress</codeserverArg>&ndash;&gt;-->
+            <!--&lt;!&ndash;<codeserverArg>192.168.1.9</codeserverArg>&ndash;&gt;-->
           </codeserverArgs>
         </configuration>
       </plugin>
