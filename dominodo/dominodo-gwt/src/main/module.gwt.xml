@@ -5,7 +5,7 @@
 
   <source path="" />
 
-  <entry-point class="org.dominokit.samples.App" />
+  <entry-point class="org.dominokit.samples.GwtApp" />
   <collapse-all-properties/>
 
 </module>
