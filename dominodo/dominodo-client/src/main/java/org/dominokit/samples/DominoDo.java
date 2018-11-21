@@ -1,6 +1,5 @@
 package org.dominokit.samples;
 
-import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.icons.Icons;
@@ -19,13 +18,13 @@ import java.util.List;
 
 import static org.jboss.gwt.elemento.core.Elements.img;
 
-public class App implements EntryPoint, HasMenuUiHandlers, HasTaskUiHandlers {
+public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
 
     private final TasksRepository tasksRepository = new TasksRepository();
     private Layout layout;
     private HasTasks currentTaskView;
 
-    public void onModuleLoad() {
+    public void run() {
 
         Search search = Search.create()
                 .onSearch(this::onSearch);
@@ -33,7 +32,7 @@ public class App implements EntryPoint, HasMenuUiHandlers, HasTaskUiHandlers {
         layout = Layout.create("DominoDo");
         layout
                 .navigationBar(navigationBar -> navigationBar.insertBefore(search, layout.getNavigationBar().firstChild()))
-                .leftPanel(leftPanel -> leftPanel.appendChild(MenuComponent.create(App.this)))
+                .leftPanel(leftPanel -> leftPanel.appendChild(MenuComponent.create(DominoDo.this)))
                 .rightPanel(rightPanel -> rightPanel.appendChild(new SettingsComponent()))
                 .topBar(topBar -> topBar
                         .appendChild(TopBarAction.create(Icons.ALL.settings())
@@ -75,7 +74,7 @@ public class App implements EntryPoint, HasMenuUiHandlers, HasTaskUiHandlers {
     public void onAllSelected() {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listAll();
-            layout.setContent(TasksList.create("All Tasks", tasks, App.this)
+            layout.setContent(TasksList.create("All Tasks", tasks, DominoDo.this)
                     .update(animate));
         };
 
@@ -86,7 +85,7 @@ public class App implements EntryPoint, HasMenuUiHandlers, HasTaskUiHandlers {
     public void onListResolved() {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listResolved();
-            layout.setContent(TasksList.create("Resolved", tasks, App.this)
+            layout.setContent(TasksList.create("Resolved", tasks, DominoDo.this)
                     .update(animate));
         };
 
@@ -97,7 +96,7 @@ public class App implements EntryPoint, HasMenuUiHandlers, HasTaskUiHandlers {
     public void onTodaySelected() {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listTodayTasks();
-            layout.setContent(TasksList.create("Today's tasks", tasks, App.this)
+            layout.setContent(TasksList.create("Today's tasks", tasks, DominoDo.this)
                     .update(animate));
         };
 
@@ -108,7 +107,7 @@ public class App implements EntryPoint, HasMenuUiHandlers, HasTaskUiHandlers {
     public void onNextWeekSelected() {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listNextWeekTasks();
-            layout.setContent(TasksList.create("Next week tasks", tasks, App.this)
+            layout.setContent(TasksList.create("Next week tasks", tasks, DominoDo.this)
                     .update(animate));
         };
 
@@ -120,7 +119,7 @@ public class App implements EntryPoint, HasMenuUiHandlers, HasTaskUiHandlers {
 
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listByPriority(priority);
-            layout.setContent(TasksList.create((Priority.IMPORTANT.equals(priority) ? "Important" : "Normal") + " tasks", tasks, App.this)
+            layout.setContent(TasksList.create((Priority.IMPORTANT.equals(priority) ? "Important" : "Normal") + " tasks", tasks, DominoDo.this)
                     .update(animate));
         };
 
@@ -131,7 +130,7 @@ public class App implements EntryPoint, HasMenuUiHandlers, HasTaskUiHandlers {
     public void onProjectSelected(String projectName) {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listByProjectName(projectName);
-            layout.setContent(TasksList.create(projectName + " tasks", tasks, App.this)
+            layout.setContent(TasksList.create(projectName + " tasks", tasks, DominoDo.this)
                     .update(animate));
         };
 
@@ -142,7 +141,7 @@ public class App implements EntryPoint, HasMenuUiHandlers, HasTaskUiHandlers {
     public void onTagSelected(String tag) {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.findByTag(tag);
-            layout.setContent(TasksList.create("Search tag -"+tag, tasks, App.this)
+            layout.setContent(TasksList.create("Search tag -"+tag, tasks, DominoDo.this)
                     .update(animate));
         };
 
@@ -153,7 +152,7 @@ public class App implements EntryPoint, HasMenuUiHandlers, HasTaskUiHandlers {
     private void onSearch(String searchToken) {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.findTasks(searchToken);
-            layout.setContent(TasksList.create("Search results", tasks, App.this)
+            layout.setContent(TasksList.create("Search results", tasks, DominoDo.this)
                     .update(animate));
         };
 

@@ -1,8 +1,5 @@
 package org.dominokit.samples.tasks;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.editor.client.Editor;
-import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 import org.dominokit.domino.ui.button.Button;
 import org.dominokit.domino.ui.datepicker.DateBox;
 import org.dominokit.domino.ui.forms.*;
@@ -15,6 +12,9 @@ import org.dominokit.samples.Priority;
 import org.dominokit.samples.Project;
 import org.dominokit.samples.Task;
 import org.dominokit.samples.attachments.FileUploadComponent;
+import org.gwtproject.editor.client.Editor;
+import org.gwtproject.editor.client.SimpleBeanEditorDriver;
+import org.gwtproject.editor.client.annotation.IsDriver;
 
 import java.util.Date;
 import java.util.function.Consumer;
@@ -27,6 +27,7 @@ public class EditTaskDialog implements Editor<Task>, HasTask {
     private final Driver driver;
     private Task task;
 
+    @IsDriver
     interface Driver extends SimpleBeanEditorDriver<Task, EditTaskDialog> {
     }
 
@@ -46,7 +47,7 @@ public class EditTaskDialog implements Editor<Task>, HasTask {
 
     public EditTaskDialog(String dialogTitle) {
 
-        driver = GWT.create(Driver.class);
+        driver = new EditTaskDialog_Driver_Impl();
 
         title = TextBox.create("Title")
                 .setRequired(true)
