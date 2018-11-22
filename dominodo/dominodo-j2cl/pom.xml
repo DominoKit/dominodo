@@ -156,7 +156,7 @@
                                 <argument>--externs</argument>
                                 <argument>${project.basedir}/src/main/externs/svg.js</argument>
                                 <argument>-jsZipCache</argument>
-                                <argument>jsZipCache</argument>
+                                <argument>${project.build.directory}/jsZipCache</argument>
                                 <argument>-entrypoint</argument>
                                 <argument>org.dominokit.samples.App</argument>
                             </arguments>
