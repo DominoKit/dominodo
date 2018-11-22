@@ -65,7 +65,7 @@
       <dependencies>
         <dependency>
           <groupId>${project.groupId}</groupId>
-          <artifactId>dominodo-client</artifactId>
+          <artifactId>dominodo-gwt</artifactId>
           <version>${project.version}</version>
           <type>war</type>
           <scope>runtime</scope>
