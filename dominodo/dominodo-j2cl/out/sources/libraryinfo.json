@@ -1,0 +1,156 @@
+{
+  "type": [{
+    "typeId": "org.dominokit.samples.App",
+    "extendsType": "java.lang.Object",
+    "implementsType": ["com.google.gwt.core.client.EntryPoint"],
+    "member": [{
+      "name": "constructor",
+      "public": true,
+      "invokedMethods": [{
+        "method": "constructor",
+        "enclosingType": "java.lang.Object",
+        "kind": "STATIC"
+      }, {
+        "method": "f_map__org_dominokit_samples_App_",
+        "enclosingType": "org.dominokit.samples.App"
+      }],
+      "referencedTypes": ["java.lang.Object"],
+      "startPosition": {
+        "line": 21,
+        "column": 2
+      },
+      "endPosition": {
+        "line": 30,
+        "column": 2
+      }
+    }, {
+      "name": "$create__",
+      "public": true,
+      "static": true,
+      "invokedMethods": [{
+        "method": "$clinit",
+        "enclosingType": "org.dominokit.samples.App",
+        "kind": "STATIC"
+      }, {
+        "method": "constructor",
+        "enclosingType": "org.dominokit.samples.App",
+        "kind": "INSTANTIATION"
+      }, {
+        "method": "$ctor__org_dominokit_samples_App__",
+        "enclosingType": "org.dominokit.samples.App"
+      }],
+      "referencedTypes": ["org.dominokit.samples.App"],
+      "startPosition": {
+        "line": 30,
+        "column": 2
+      },
+      "endPosition": {
+        "line": 41,
+        "column": 2
+      }
+    }, {
+      "name": "$ctor__org_dominokit_samples_App__",
+      "public": true,
+      "invokedMethods": [{
+        "method": "$ctor__java_lang_Object__",
+        "enclosingType": "java.lang.Object"
+      }, {
+        "method": "$init__org_dominokit_samples_App",
+        "enclosingType": "org.dominokit.samples.App"
+      }],
+      "startPosition": {
+        "line": 41,
+        "column": 2
+      },
+      "endPosition": {
+        "line": 50,
+        "column": 2
+      }
+    }, {
+      "name": "m_onModuleLoad__",
+      "public": true,
+      "invokedMethods": [{
+        "method": "f_map__org_dominokit_samples_App_",
+        "enclosingType": "org.dominokit.samples.App"
+      }, {
+        "method": "put",
+        "enclosingType": "java.util.Map"
+      }, {
+        "method": "remove",
+        "enclosingType": "java.util.Map"
+      }, {
+        "method": "values",
+        "enclosingType": "java.util.Map"
+      }, {
+        "method": "m_remove__java_lang_Object",
+        "enclosingType": "java.util.Collection"
+      }, {
+        "method": "$create__",
+        "enclosingType": "org.dominokit.samples.DominoDo",
+        "kind": "STATIC"
+      }, {
+        "method": "m_run__",
+        "enclosingType": "org.dominokit.samples.DominoDo"
+      }],
+      "referencedTypes": ["org.dominokit.samples.DominoDo"],
+      "startPosition": {
+        "line": 50,
+        "column": 2
+      },
+      "endPosition": {
+        "line": 62,
+        "column": 2
+      }
+    }, {
+      "name": "f_map__org_dominokit_samples_App_"
+    }, {
+      "name": "$init__org_dominokit_samples_App",
+      "jsAccessible": true,
+      "invokedMethods": [{
+        "method": "f_map__org_dominokit_samples_App_",
+        "enclosingType": "org.dominokit.samples.App"
+      }, {
+        "method": "$create__",
+        "enclosingType": "java.util.TreeMap",
+        "kind": "STATIC"
+      }],
+      "referencedTypes": ["java.util.TreeMap"],
+      "startPosition": {
+        "line": 62,
+        "column": 2
+      },
+      "endPosition": {
+        "line": 70,
+        "column": 2
+      }
+    }, {
+      "name": "$clinit",
+      "public": true,
+      "static": true,
+      "invokedMethods": [{
+        "method": "$clinit",
+        "enclosingType": "org.dominokit.samples.App",
+        "kind": "STATIC"
+      }, {
+        "method": "$loadModules",
+        "enclosingType": "org.dominokit.samples.App",
+        "kind": "STATIC"
+      }, {
+        "method": "$clinit",
+        "enclosingType": "java.lang.Object",
+        "kind": "STATIC"
+      }],
+      "referencedTypes": ["org.dominokit.samples.App", "java.lang.Object"],
+      "startPosition": {
+        "line": 70,
+        "column": 2
+      },
+      "endPosition": {
+        "line": 81,
+        "column": 2
+      }
+    }],
+    "headerSourceFilePath": "org/dominokit/samples/App.java.js",
+    "implSourceFilePath": "org/dominokit/samples/App.impl.java.js"
+  }]
+}

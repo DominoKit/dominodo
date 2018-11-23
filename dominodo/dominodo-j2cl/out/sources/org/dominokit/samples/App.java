@@ -8,9 +8,10 @@ import java.util.TreeMap;
 public class App implements EntryPoint {
 
     private Map<String, String> map = new TreeMap<>();
-    public void onModuleLoad() {
 
+    public void onModuleLoad() {
         map.put("x", "y");
+        map.remove("x");
         map.values().remove("x");
         new DominoDo().run();
     }
