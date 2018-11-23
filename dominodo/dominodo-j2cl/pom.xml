@@ -86,7 +86,20 @@
             <id>devmode</id>
             <build>
                 <defaultGoal>process-classes</defaultGoal>
+                <resources>
+                    <resource>
+                        <directory>src/main/webapp</directory>
+                        <targetPath>${webappdir}</targetPath>
+                    </resource>
+                </resources>
                 <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <outputDirectory>${webappdir}/classes</outputDirectory>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-dependency-plugin</artifactId>
@@ -109,7 +122,7 @@
                                     <goal>copy</goal>
                                 </goals>
                                 <configuration>
-                                    <!--<artifact>com.vertispan.j2cl:bootstrap:0.1-SNAPSHOT:zip:jszip</artifact>-->
+                                    <outputDirectory>${webappdir}/WEB-INF/lib</outputDirectory>
                                     <artifactItems>
                                         <artifactItem>
                                             <groupId>com.vertispan.j2cl</groupId>
@@ -142,60 +155,62 @@
                                     </artifactItems>
                                 </configuration>
                             </execution>
-
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>1.6.0</version>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <version>9.4.14.v20181114</version>
+                        <configuration>
+                            <webApp>
+                                <contextPath>/</contextPath>
+                                <resourceBases>
+                                    ${webappdir}
+                                </resourceBases>
+                                <descriptor>${webappdir}/WEB-INF/web.xml</descriptor>
+                            </webApp>
+                            <reload>automatic</reload>
+                            <scanIntervalSeconds>1</scanIntervalSeconds>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>start-jetty</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>start</goal>
+                                </goals>
+                                <configuration>
+                                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>net.cardosi.j2cl</groupId>
+                        <artifactId>j2cl-maven-plugin</artifactId>
+                        <version>0.2-SNAPSHOT</version>
                         <executions>
                             <execution>
                                 <id>run-devmode</id>
                                 <phase>process-classes</phase>
                                 <goals>
-                                    <goal>java</goal>
+                                    <goal>build</goal>
                                 </goals>
                             </execution>
                         </executions>
                         <configuration>
-                            <includeProjectDependencies>false</includeProjectDependencies>
-                            <includePluginDependencies>true</includePluginDependencies>
-                            <includeProjectDependencies>false</includeProjectDependencies>
-                            <mainClass>com.vertispan.j2cl.DevMode</mainClass>
-                            <arguments>
-                                <argument>-classpath</argument>
-                                <argument>
-                                    ${java-classpath}:${project.build.directory}/dependency/jre.jar:${project.build.directory}/dependency/gwt-internal-annotations.jar
-                                </argument>
-                                <argument>-jsClasspath</argument>
-                                <argument>
-                                    ${project.build.directory}/dependency/bootstrap.js.zip:${project.build.directory}/dependency/jre.js.zip
-                                </argument>
-                                <argument>-out</argument>
-                                <argument>out</argument>
-                                <argument>-src</argument>
-                                <argument>src/main/java</argument>
-                                <argument>-O</argument>
-                                <argument>BUNDLE</argument>
-                                <argument>--externs</argument>
-                                <argument>${project.basedir}/src/main/externs/w3c_clipboardevent.js</argument>
-                                <argument>--externs</argument>
-                                <argument>${project.basedir}/src/main/externs/svg.js</argument>
-                                <argument>-jsZipCache</argument>
-                                <argument>${project.build.directory}/jsZipCache</argument>
-                                <argument>-entrypoint</argument>
-                                <argument>org.dominokit.samples.App</argument>
-                            </arguments>
+                            <bytecodeClasspath>${java-classpath}:${webapp.libdir}/jre.jar:${webapp.libdir}/gwt-internal-annotations.jar</bytecodeClasspath>
+                            <j2clClasspath>${webapp.libdir}/bootstrap.js.zip:${webapp.libdir}/jre.js.zip</j2clClasspath>
+                            <outputJsPathDir>${webappdir}/js</outputJsPathDir>
+                            <sourceDir>src/main/java</sourceDir>
+                            <jsZipCacheDir>jsZipCache</jsZipCacheDir>
+                            <entrypoint>com.vertispan.draw.connected.client.FlowChartEntryPoint</entrypoint>
+                            <externs>
+                                <extern>${project.basedir}/src/main/externs/w3c_clipboardevent.js</extern>
+                                <extern>${project.basedir}/src/main/externs/svg.js</extern>
+                            </externs>
+                            <compilationLevel>BUNDLE</compilationLevel>
                         </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>com.vertispan.j2cl</groupId>
-                                <artifactId>build-tools</artifactId>
-                                <version>0.2-SNAPSHOT</version>
-                                <type>jar</type>
-                            </dependency>
-                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
