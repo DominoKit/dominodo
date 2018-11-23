@@ -204,7 +204,7 @@
                             <outputJsPathDir>${webappdir}/js</outputJsPathDir>
                             <sourceDir>src/main/java</sourceDir>
                             <jsZipCacheDir>jsZipCache</jsZipCacheDir>
-                            <entrypoint>com.vertispan.draw.connected.client.FlowChartEntryPoint</entrypoint>
+                            <entrypoint>org.dominokit.samples.App</entrypoint>
                             <externs>
                                 <extern>${project.basedir}/src/main/externs/w3c_clipboardevent.js</extern>
                                 <extern>${project.basedir}/src/main/externs/svg.js</extern>
