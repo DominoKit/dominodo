@@ -12,6 +12,11 @@
     <artifactId>dominodo-j2cl</artifactId>
     <packaging>jar</packaging>
 
+    <properties>
+        <webappdir>${project.build.directory}/webapp</webappdir>
+        <webapp.libdir>${webappdir}/WEB-INF/lib</webapp.libdir>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.dominokit.samples</groupId>
@@ -50,6 +55,28 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>net.cardosi.j2cl</groupId>
+                <artifactId>j2cl-maven-plugin</artifactId>
+                <version>0.2-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <id>run-devmode</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <bytecodeClasspath>${java-classpath}:${webapp.libdir}/jre.jar:${webapp.libdir}/gwt-internal-annotations.jar</bytecodeClasspath>
+                    <j2clClasspath>${webapp.libdir}/bootstrap.js.zip:${webapp.libdir}/jre.js.zip</j2clClasspath>
+                    <outputJsPathDir>${webappdir}/js</outputJsPathDir>
+                    <sourceDir>src/main/java</sourceDir>
+                    <jsZipCacheDir>jsZipCache</jsZipCacheDir>
+                    <entrypoint>org.dominokit.samples.App</entrypoint>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -184,6 +211,15 @@
             </releases>
             <snapshots>
                 <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>sonatype-snapshots-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
