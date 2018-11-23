@@ -22,8 +22,6 @@ Find the war file i the target folder of the `dominodo-server` module.
 
 # Run as a J2CL app
 
-1- cd into `dominodo-j2cl`
+1- execute `mvn clean install -Pdevmode`
 
-2- execute `mvn -Pdevmode`
-
-3- when the compilation is completed open out/index.html in your browser.
+2- access the app at `http://localhost:8080`
