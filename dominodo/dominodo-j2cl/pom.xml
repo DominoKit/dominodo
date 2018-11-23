@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>dominodo-j2cl</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <properties>
         <webappdir>${project.build.directory}/webapp</webappdir>
