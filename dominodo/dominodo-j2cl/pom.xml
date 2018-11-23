@@ -209,7 +209,7 @@
                                 <extern>${project.basedir}/src/main/externs/w3c_clipboardevent.js</extern>
                                 <extern>${project.basedir}/src/main/externs/svg.js</extern>
                             </externs>
-                            <compilationLevel>BUNDLE</compilationLevel>
+                            <compilationLevel>ADVANCED</compilationLevel>
                         </configuration>
                     </plugin>
                 </plugins>
