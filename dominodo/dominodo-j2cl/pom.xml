@@ -73,8 +73,8 @@
                     <bytecodeClasspath>${java-classpath}:${webapp.libdir}/jre.jar:${webapp.libdir}/gwt-internal-annotations.jar</bytecodeClasspath>
                     <j2clClasspath>${webapp.libdir}/bootstrap.js.zip:${webapp.libdir}/jre.js.zip</j2clClasspath>
                     <outputJsPathDir>${webappdir}/js</outputJsPathDir>
-                    <sourceDir>src/main/java</sourceDir>
-                    <jsZipCacheDir>jsZipCache</jsZipCacheDir>
+                    <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                    <jsZipCacheDir>${project.build.directory}/jsZipCache</jsZipCacheDir>
                     <entrypoint>org.dominokit.samples.App</entrypoint>
                 </configuration>
             </plugin>
@@ -202,8 +202,8 @@
                             <bytecodeClasspath>${java-classpath}:${webapp.libdir}/jre.jar:${webapp.libdir}/gwt-internal-annotations.jar</bytecodeClasspath>
                             <j2clClasspath>${webapp.libdir}/bootstrap.js.zip:${webapp.libdir}/jre.js.zip</j2clClasspath>
                             <outputJsPathDir>${webappdir}/js</outputJsPathDir>
-                            <sourceDir>src/main/java</sourceDir>
-                            <jsZipCacheDir>jsZipCache</jsZipCacheDir>
+                            <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                            <jsZipCacheDir>${project.build.directory}/jsZipCache</jsZipCacheDir>
                             <entrypoint>org.dominokit.samples.App</entrypoint>
                             <externs>
                                 <extern>${project.basedir}/src/main/externs/w3c_clipboardevent.js</extern>
