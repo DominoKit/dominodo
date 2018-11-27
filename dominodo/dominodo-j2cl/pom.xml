@@ -24,6 +24,11 @@
             <version>1.0-SNAPSHOT</version>
             <classifier>sources</classifier>
         </dependency>
+        <dependency>
+            <groupId>com.google.jsinterop</groupId>
+            <artifactId>jsinterop-annotations</artifactId>
+            <version>HEAD-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -174,50 +179,4 @@
             </build>
         </profile>
     </profiles>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>vertispan-releases</id>
-            <name>Vertispan hosted artifacts-releases</name>
-            <url>https://repo.vertispan.com/j2cl</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
-    <repositories>
-        <repository>
-            <id>vertispan-releases</id>
-            <name>Vertispan hosted artifacts-releases</name>
-            <url>https://repo.vertispan.com/j2cl</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>vertispan-snapshots</id>
-            <name>Vertispan Snapshots</name>
-            <url>https://repo.vertispan.com/gwt-snapshot/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>sonatype-snapshots-repo</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>
