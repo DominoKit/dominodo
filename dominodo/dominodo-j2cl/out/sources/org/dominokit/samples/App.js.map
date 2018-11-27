@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"App.impl.java.js",
-"lineCount":151,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;MAOa,G;;;;EAAA,W;IAAAA,Q;IAAAA;SAEmB,iCAFnBA,C;;;;;;;SAAA,S;IAAAC,c;IAAAA,0B;IAAAA,+C;IAAAA,iB;;;;;;;EAAA,kC;IAAAC,iC;IAAAA,wC;;;;;;;;EAIG,gB;IACRC,qD;IACAA,mD;IACAA,gF;IACAA,+B;;;;;;;EARK,gC;IAETD,wG;;;;;;;SAFS,O;IAAAE;O;IAAAA,mB;IAAAA,qB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ACPbC,E;CACCA,K;CACAA,W;CACAA,I;CACAA,8B;CACAA,I;CACAA,iE;CACAA,kE;CACAA,yC;CACAA,C;CACAA,iD;CACAA,C;CACAA,qE;CACAA,mE;CACAA,0E;CACAA,qE;CACAA,gC;CACAA,K;CACAA,E;;AAEDA,sF;AACAA,yF;AACAA,sB;AACAA,sB;EACEA,wF;EACAA,qF;EACAA,4C;EACAA,yB;EACAA,wC;EACAA,qB;AACFA;",
-"sources":["App.java","App.native_js"],
-"names":["org.dominokit.samples.App.<synthetic: ctor_js>","org.dominokit.samples.App.<synthetic: ctor_create>","org.dominokit.samples.App.<init>","org.dominokit.samples.App.onModuleLoad","org.dominokit.samples.App.<clinit>","org.dominokit.samples.App.<native>"]
-}

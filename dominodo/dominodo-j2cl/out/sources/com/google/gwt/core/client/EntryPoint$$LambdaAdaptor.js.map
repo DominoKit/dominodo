@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"EntryPoint$$LambdaAdaptor.impl.java.js",
-"lineCount":59,
-"mappings":"A;;;;;;;;;;;;;;;;MAyBiB,c;;;;;EAAA,W;IAAAA,yB;IAAAA,Q;IAAAA;sE;IAAAA,wH;;;;;;;;EAAA,8G;IAAAC,iC;IAAAA,uE;;;;;;;EAAA,gB;;MAAAC,kF;MAAAA,Y;;;;;;;;SAAA,O;IAAAC;O;IAAAA,8B;IAAAA;",
-"sources":["EntryPoint.java"],
-"names":["com.google.gwt.core.client.EntryPoint$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","com.google.gwt.core.client.EntryPoint$$LambdaAdaptor.<init>","com.google.gwt.core.client.EntryPoint$$LambdaAdaptor.onModuleLoad","com.google.gwt.core.client.EntryPoint$$LambdaAdaptor.<clinit>"]
-}

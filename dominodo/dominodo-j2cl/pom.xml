@@ -29,6 +29,11 @@
             <version>1.0-SNAPSHOT</version>
             <classifier>sources</classifier>
         </dependency>
+        <dependency>
+            <groupId>com.google.jsinterop</groupId>
+            <artifactId>jsinterop-annotations</artifactId>
+            <version>HEAD-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -74,7 +79,7 @@
                     <j2clClasspath>${webapp.libdir}/bootstrap.js.zip:${webapp.libdir}/jre.js.zip</j2clClasspath>
                     <outputJsPathDir>${webappdir}/js</outputJsPathDir>
                     <sourceDir>${project.basedir}/src/main/java</sourceDir>
-                    <jsZipCacheDir>${project.build.directory}/jsZipCache</jsZipCacheDir>
+                    <jsZipCacheDir>${project.basedir}/jsZipCache</jsZipCacheDir>
                     <entrypoint>org.dominokit.samples.App</entrypoint>
                 </configuration>
             </plugin>
@@ -203,13 +208,13 @@
                             <j2clClasspath>${webapp.libdir}/bootstrap.js.zip:${webapp.libdir}/jre.js.zip</j2clClasspath>
                             <outputJsPathDir>${webappdir}/js</outputJsPathDir>
                             <sourceDir>${project.basedir}/src/main/java</sourceDir>
-                            <jsZipCacheDir>${project.build.directory}/jsZipCache</jsZipCacheDir>
+                            <jsZipCacheDir>${project.basedir}/jsZipCache</jsZipCacheDir>
                             <entrypoint>org.dominokit.samples.App</entrypoint>
                             <externs>
                                 <extern>${project.basedir}/src/main/externs/w3c_clipboardevent.js</extern>
                                 <extern>${project.basedir}/src/main/externs/svg.js</extern>
                             </externs>
-                            <compilationLevel>ADVANCED</compilationLevel>
+                            <compilationLevel>BUNDLE</compilationLevel>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -240,6 +245,18 @@
     </pluginRepositories>
 
     <repositories>
+
+        <repository>
+            <id>google-snapshots</id>
+            <name>google-snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
         <repository>
             <id>vertispan-releases</id>
             <name>Vertispan hosted artifacts-releases</name>

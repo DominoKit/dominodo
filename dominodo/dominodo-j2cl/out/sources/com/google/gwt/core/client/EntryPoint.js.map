@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"EntryPoint.impl.java.js",
-"lineCount":43,
-"mappings":"A;;;;;;;;;;;;;;;;MAyBiB,U;;;;;;EACR,gB;;;;;;;;SADQ,M;IAAAA,qB;IAAAA,8B;;;;;;;SAAA,O;IAAAC;O;IAAAA;",
-"sources":["EntryPoint.java"],
-"names":["com.google.gwt.core.client.EntryPoint.<synthetic: adapt_lambda>","com.google.gwt.core.client.EntryPoint.<clinit>"]
-}
