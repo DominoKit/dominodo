@@ -81,6 +81,7 @@
                     <sourceDir>${project.basedir}/src/main/java</sourceDir>
                     <jsZipCacheDir>${project.basedir}/jsZipCache</jsZipCacheDir>
                     <entrypoint>org.dominokit.samples.App</entrypoint>
+                    <outputDirectory>${project.basedir}/out</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>
