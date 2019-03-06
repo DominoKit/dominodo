@@ -116,7 +116,6 @@
 
     <modules>
         <module>dominodo-client</module>
-        <module>dominodo-gwt</module>
         <module>dominodo-j2cl</module>
         <module>dominodo-shared</module>
         <module>dominodo-server</module>

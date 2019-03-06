@@ -29,7 +29,7 @@ public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
         Search search = Search.create()
                 .onSearch(this::onSearch);
 
-        layout = Layout.create("DominoDo");
+        layout = Layout.create("Puppa");
         layout
                 .navigationBar(navigationBar -> navigationBar.insertBefore(search, layout.getNavigationBar().firstChild()))
                 .leftPanel(leftPanel -> leftPanel.appendChild(MenuComponent.create(DominoDo.this)))
