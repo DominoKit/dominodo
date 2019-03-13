@@ -15,7 +15,7 @@
   <properties>
     <webappdir>${project.build.directory}/webapp</webappdir>
     <webapp.libdir>${webappdir}/WEB-INF/lib</webapp.libdir>
-    <j2cl.maven.plugin.version>0.5-SNAPSHOT</j2cl.maven.plugin.version>
+    <j2cl.maven.plugin.version>0.7-SNAPSHOT</j2cl.maven.plugin.version>
   </properties>
 
   <dependencies>
@@ -75,18 +75,19 @@
             <param>${webapp.libdir}/jre.jar</param>
             <param>${webapp.libdir}/gwt-internal-annotations.jar</param>
           </bytecodeClasspath>
+          <javacBootClasspath>javac-bootstrap-classpath.jar</javacBootClasspath>
           <j2clClasspath>
             <param>${webapp.libdir}/bootstrap.js.zip</param>
             <param>${webapp.libdir}/jre.js.zip</param>
           </j2clClasspath>
-          <outputJsPathDir>${webappdir}/js</outputJsPathDir>
+          <!--<outputJsPathDir>${webappdir}/js</outputJsPathDir>-->
           <sourceDir>
             <param>${project.basedir}/src/main/java</param>
             <param>${project.parent.basedir}/dominodo-client/src/main/java</param>
           </sourceDir>
-          <jsZipCacheDir>${project.basedir}/jsZipCache</jsZipCacheDir>
+          <!--<jsZipCacheDir>${project.basedir}/jsZipCache</jsZipCacheDir>-->
           <entrypoint>org.dominokit.samples.App</entrypoint>
-          <outputDirectory>${project.basedir}/out</outputDirectory>
+          <!--<outputDirectory>${project.basedir}/out</outputDirectory>-->
           <externs>
             <extern>${project.basedir}/src/main/externs/w3c_clipboardevent.js</extern>
             <extern>${project.basedir}/src/main/externs/svg.js</extern>
@@ -168,6 +169,12 @@
                       <type>zip</type>
                       <destFileName>bootstrap.js.zip</destFileName>
                     </artifactItem>
+                    <artifactItem>
+                      <groupId>com.vertispan.j2cl</groupId>
+                      <artifactId>javac-bootstrap-classpath</artifactId>
+                      <version>0.2-SNAPSHOT</version>
+                      <destFileName>javac-bootstrap-classpath.jar</destFileName>
+                    </artifactItem>
                   </artifactItems>
                 </configuration>
               </execution>
@@ -219,7 +226,9 @@
                 <param>${java-classpath}</param>
                 <param>${webapp.libdir}/jre.jar</param>
                 <param>${webapp.libdir}/gwt-internal-annotations.jar</param>
+                <param>${webapp.libdir}/javac-bootstrap-classpath.jar</param>
               </bytecodeClasspath>
+              <javacBootClasspath>${webapp.libdir}/javac-bootstrap-classpath.jar</javacBootClasspath>
               <j2clClasspath>
                 <param>${webapp.libdir}/bootstrap.js.zip</param>
                 <param>${webapp.libdir}/jre.js.zip</param>
@@ -236,6 +245,14 @@
                 <extern>${project.basedir}/src/main/externs/svg.js</extern>
               </externs>
               <compilationLevel>BUNDLE</compilationLevel>
+              <excludedArtifacts>
+                <artifactItem>
+                  <groupId>org.dominokit.samples</groupId>
+                  <artifactId>dominodo-client</artifactId>
+                  <version>1.0-SNAPSHOT</version>
+                  <classifier>compile</classifier>
+                </artifactItem>
+              </excludedArtifacts>
             </configuration>
           </plugin>
         </plugins>

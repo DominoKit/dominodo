@@ -13,6 +13,10 @@ import org.dominokit.samples.Priority;
 public class MenuComponent extends BaseDominoElement<HTMLDivElement, MenuComponent> {
     private final Tree menu = Tree.create("Todo");
 
+    public static MenuComponent create(HasMenuUiHandlers menuUiHandlers, String puppa) {
+        return create(menuUiHandlers);
+    }
+
     public static MenuComponent create(HasMenuUiHandlers menuUiHandlers) {
         return new MenuComponent(menuUiHandlers);
     }

@@ -17,6 +17,7 @@ import org.dominokit.samples.tasks.TasksRepository;
 import java.util.List;
 
 import static org.jboss.gwt.elemento.core.Elements.img;
+import static org.jboss.gwt.elemento.core.Elements.sub;
 
 public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
 
@@ -24,15 +25,15 @@ public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
     private Layout layout;
     private HasTasks currentTaskView;
 
-    public void run() {
+    public void run(String title, String subTitle) {
 
         Search search = Search.create()
                 .onSearch(this::onSearch);
 
-        layout = Layout.create("Puppa");
+        layout = Layout.create(title + " Puppa ciccio " + subTitle);
         layout
                 .navigationBar(navigationBar -> navigationBar.insertBefore(search, layout.getNavigationBar().firstChild()))
-                .leftPanel(leftPanel -> leftPanel.appendChild(MenuComponent.create(DominoDo.this)))
+                .leftPanel(leftPanel -> leftPanel.appendChild(MenuComponent.create(DominoDo.this, "puppa")))
                 .rightPanel(rightPanel -> rightPanel.appendChild(new SettingsComponent()))
                 .topBar(topBar -> topBar
                         .appendChild(TopBarAction.create(Icons.ALL.settings())

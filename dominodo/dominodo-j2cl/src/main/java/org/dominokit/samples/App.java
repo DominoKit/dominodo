@@ -6,13 +6,12 @@ import org.gwtproject.safehtml.shared.annotations.GwtIncompatible;
 public class App implements EntryPoint {
 
     public void onModuleLoad() {
-        System.out.println();
-        new DominoDo().run();
+        new DominoDo().run("puppa", "subpuppa");
     }
 
 
     @GwtIncompatible()
     public void emptyPuppa() {
-        System.out.println("PIPPO");
+        System.out.println("PIPPO IS SUPER STRONG");
     }
 }
