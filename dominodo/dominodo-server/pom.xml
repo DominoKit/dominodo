@@ -65,7 +65,7 @@
       <dependencies>
         <dependency>
           <groupId>${project.groupId}</groupId>
-          <artifactId>dominodo-gwt</artifactId>
+          <artifactId>dominodo-j2cl</artifactId>
           <version>${project.version}</version>
           <type>war</type>
           <scope>runtime</scope>

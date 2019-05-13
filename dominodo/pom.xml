@@ -13,6 +13,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <j2cl.maven.plugin.version>0.7-SNAPSHOT</j2cl.maven.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -42,6 +44,14 @@
                     <launcherDir>${project.build.directory}/gwt/launcherDir</launcherDir>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>net.cardosi.j2cl</groupId>
+                <artifactId>j2cl-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <defaultWebappDirectory>${project.build.directory}/gwt/launcherDir</defaultWebappDirectory>
+                </configuration>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -54,6 +64,11 @@
                         <source>1.8</source>
                         <target>1.8</target>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>net.cardosi.j2cl</groupId>
+                    <artifactId>j2cl-maven-plugin</artifactId>
+                    <version>${j2cl.maven.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.eclipse.jetty</groupId>
@@ -99,8 +114,19 @@
             <url>https://repo.vertispan.com/gwt-snapshot/</url>
             <snapshots>
                 <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
+                <!--<updatePolicy>always</updatePolicy>-->
                 <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>vertispan-releases</id>
+            <name>Vertispan hosted artifacts-releases</name>
+            <url>https://repo.vertispan.com/j2cl</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
         <repository>
@@ -108,10 +134,22 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
             <snapshots>
                 <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
+                <!--<updatePolicy>always</updatePolicy>-->
                 <checksumPolicy>fail</checksumPolicy>
             </snapshots>
         </repository>
+        <repository>
+            <id>google-snapshots</id>
+            <name>google-snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
     </repositories>
 
     <modules>
