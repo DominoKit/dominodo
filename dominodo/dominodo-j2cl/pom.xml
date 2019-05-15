@@ -72,7 +72,9 @@
           <externs>
             <extern>${project.basedir}/src/main/externs/svg.js</extern>
           </externs>
-          <compilationLevel>ADVANCED</compilationLevel>
+          <defines>
+            <locale>en_US</locale>
+          </defines>
         </configuration>
       </plugin>
     </plugins>
