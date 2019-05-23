@@ -60,7 +60,7 @@
         <artifactId>j2cl-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>run-devmode</id>
+            <id>build-js</id>
             <phase>process-classes</phase>
             <goals>
               <goal>build</goal>
