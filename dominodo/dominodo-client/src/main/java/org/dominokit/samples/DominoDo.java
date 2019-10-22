@@ -20,7 +20,6 @@ import java.util.List;
 
 import static org.dominokit.samples.tasks.TasksRepository._1_day;
 import static org.jboss.gwt.elemento.core.Elements.img;
-import static org.jboss.gwt.elemento.core.Elements.sub;
 
 public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
 

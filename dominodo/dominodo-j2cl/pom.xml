@@ -75,6 +75,8 @@
           <defines>
             <locale>en_US</locale>
           </defines>
+          <!-- workaround for how closure generates sourcemaps, and how chrome interprets them. not needed in firefox -->
+          <initialScriptFilename>${project.artifactId}.js</initialScriptFilename>
         </configuration>
       </plugin>
     </plugins>
