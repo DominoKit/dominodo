@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.function.Consumer;
 
 import static java.util.Objects.nonNull;
-import static org.jboss.gwt.elemento.core.Elements.h;
+import static org.jboss.elemento.Elements.h;
 
 public class EditTaskDialog implements Editor<Task>, HasTask {
 

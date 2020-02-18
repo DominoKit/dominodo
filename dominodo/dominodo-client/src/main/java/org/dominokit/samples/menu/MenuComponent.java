@@ -11,7 +11,7 @@ import org.dominokit.samples.HasMenuUiHandlers;
 import org.dominokit.samples.Priority;
 
 public class MenuComponent extends BaseDominoElement<HTMLDivElement, MenuComponent> {
-    private final Tree menu = Tree.create("Todo");
+    private final Tree<String> menu = Tree.create("Todo");
 
     public static MenuComponent create(HasMenuUiHandlers menuUiHandlers, String puppa) {
         return create(menuUiHandlers);
@@ -61,7 +61,7 @@ public class MenuComponent extends BaseDominoElement<HTMLDivElement, MenuCompone
     }
 
     @Override
-    public HTMLDivElement asElement() {
-        return menu.asElement();
+    public HTMLDivElement element() {
+        return menu.element();
     }
 }

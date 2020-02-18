@@ -15,14 +15,14 @@ import org.dominokit.samples.Task;
 
 import java.util.List;
 
-import static org.jboss.gwt.elemento.core.Elements.div;
+import static org.jboss.elemento.Elements.div;
 
 public class TasksList extends BaseDominoElement<HTMLDivElement, TasksList> {
 
     private int DURATION = 400;
     private final Column column = Column.span8()
             .offset2();
-    private HTMLDivElement element = div().asElement();
+    private HTMLDivElement element = div().element();
     private int delay = 100;
     private String title;
     private final List<Task> tasks;
@@ -34,7 +34,7 @@ public class TasksList extends BaseDominoElement<HTMLDivElement, TasksList> {
         this.hasTaskUiHandlers = hasTaskUiHandlers;
 
         element.appendChild(Row.create()
-                .appendChild(column).asElement());
+                .appendChild(column).element());
     }
 
     public static TasksList create(String title, List<Task> tasks, HasTaskUiHandlers hasTaskUiHandlers){
@@ -55,11 +55,11 @@ public class TasksList extends BaseDominoElement<HTMLDivElement, TasksList> {
                 tasks.forEach(task -> {
                     TaskComponent taskComponent = TaskComponent.create(task, hasTaskUiHandlers);
                     if(animate) {
-                        taskComponent.collapse();
+                        taskComponent.hide();
                         element.appendChild(taskComponent);
                         Animation.create(taskComponent)
                                 .delay(delay)
-                                .beforeStart(component -> taskComponent.expand())
+                                .beforeStart(component -> taskComponent.show())
                                 .duration(DURATION)
                                 .transition(Transition.SLIDE_IN_UP)
                                 .animate();
@@ -78,7 +78,7 @@ public class TasksList extends BaseDominoElement<HTMLDivElement, TasksList> {
     }
 
     @Override
-    public HTMLDivElement asElement() {
+    public HTMLDivElement element() {
         return element;
     }
 }

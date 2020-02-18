@@ -12,9 +12,9 @@ import org.dominokit.domino.ui.style.Style;
 import org.dominokit.domino.ui.style.Styles;
 import org.dominokit.domino.ui.themes.Theme;
 import org.dominokit.domino.ui.utils.BaseDominoElement;
-import org.jboss.gwt.elemento.core.EventType;
+import org.jboss.elemento.EventType;
 
-import static org.jboss.gwt.elemento.core.Elements.*;
+import static org.jboss.elemento.Elements.*;
 
 public class SettingsComponent extends BaseDominoElement<HTMLDivElement, SettingsComponent> {
 
@@ -65,7 +65,7 @@ public class SettingsComponent extends BaseDominoElement<HTMLDivElement, Setting
     }
 
     @Override
-    public HTMLDivElement asElement() {
-        return card.asElement();
+    public HTMLDivElement element() {
+        return card.element();
     }
 }

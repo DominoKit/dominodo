@@ -31,14 +31,15 @@ import org.dominokit.samples.Task;
 import org.dominokit.samples.attachments.AttachDialogComponent;
 import org.dominokit.samples.attachments.AttachmentPanelComponent;
 import org.dominokit.samples.attachments.FileUploadComponent;
-import org.gwtproject.i18n.shared.DateTimeFormatInfo;
-import org.gwtproject.i18n.shared.impl.cldr.DateTimeFormatInfo_factory;
-import org.jboss.gwt.elemento.core.builder.HtmlContentBuilder;
+import org.gwtproject.i18n.shared.cldr.DateTimeFormatInfo;
+import org.gwtproject.i18n.shared.cldr.impl.DateTimeFormatInfo_factory;
+import org.jboss.elemento.HtmlContentBuilder;
 
 import java.util.Date;
 
-import static org.jboss.gwt.elemento.core.Elements.hr;
-import static org.jboss.gwt.elemento.core.Elements.small;
+import static org.jboss.elemento.Elements.hr;
+import static org.jboss.elemento.Elements.small;
+
 
 public class TaskComponent extends BaseDominoElement<HTMLDivElement, TaskComponent> implements HasTask {
 
@@ -87,7 +88,7 @@ public class TaskComponent extends BaseDominoElement<HTMLDivElement, TaskCompone
                 .setColor(Color.RED)
                 .setTooltip("This task is important")
                 .styler(style1 -> style1.add(Styles.pull_right))
-                .collapse();
+                .hide();
 
         attachmentPanel = AttachmentPanelComponent.create(task);
 
@@ -251,7 +252,7 @@ public class TaskComponent extends BaseDominoElement<HTMLDivElement, TaskCompone
     }
 
     @Override
-    public HTMLDivElement asElement() {
-        return card.asElement();
+    public HTMLDivElement element() {
+        return card.element();
     }
 }
