@@ -9,12 +9,12 @@ import org.dominokit.domino.ui.utils.BaseDominoElement;
 import org.dominokit.samples.HasTaskUiHandlers;
 import org.dominokit.samples.Task;
 
-import static org.jboss.gwt.elemento.core.Elements.div;
+import static org.jboss.elemento.Elements.div;
 
 public class TagsPanelComponent extends BaseDominoElement<HTMLDivElement, TagsPanelComponent> {
 
     private final FlexItem tagsContainer = FlexItem.create();
-    private HTMLDivElement element = div().asElement();
+    private HTMLDivElement element = div().element();
     private Task task;
     private HasTaskUiHandlers taskUiHandlers;
 
@@ -27,7 +27,7 @@ public class TagsPanelComponent extends BaseDominoElement<HTMLDivElement, TagsPa
         this.taskUiHandlers = taskUiHandlers;
 
         element.appendChild(FlexLayout.create()
-                .appendChild(tagsContainer).asElement());
+                .appendChild(tagsContainer).element());
         init(this);
         update();
     }
@@ -43,7 +43,7 @@ public class TagsPanelComponent extends BaseDominoElement<HTMLDivElement, TagsPa
     }
 
     @Override
-    public HTMLDivElement asElement() {
+    public HTMLDivElement element() {
         return element;
     }
 }

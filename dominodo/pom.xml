@@ -42,6 +42,14 @@
                     <launcherDir>${project.build.directory}/gwt/launcherDir</launcherDir>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.vertispan.j2cl</groupId>
+                <artifactId>j2cl-maven-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <webappDirectory>${project.build.directory}/gwt/launcherDir</webappDirectory>
+                </configuration>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -54,6 +62,11 @@
                         <source>1.8</source>
                         <target>1.8</target>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.vertispan.j2cl</groupId>
+                    <artifactId>j2cl-maven-plugin</artifactId>
+                    <version>0.13-SNAPSHOT</version>
                 </plugin>
                 <plugin>
                     <groupId>org.eclipse.jetty</groupId>
@@ -92,10 +105,19 @@
         </pluginManagement>
     </build>
 
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>vertispan-releases</id>
+    <repositories>
+        <repository>
+            <id>vertispan-gwt</id>
+            <name>Vertispan Snapshots</name>
+            <url>https://repo.vertispan.com/gwt-snapshot/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <!--<updatePolicy>always</updatePolicy>-->
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>vertispan-j2cl</id>
             <name>Vertispan hosted artifacts-releases</name>
             <url>https://repo.vertispan.com/j2cl</url>
             <releases>
@@ -104,20 +126,16 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-        </pluginRepository>
-        <pluginRepository>
+        </repository>
+        <repository>
             <id>sonatype-snapshots-repo</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
             <snapshots>
                 <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
+                <!--<updatePolicy>always</updatePolicy>-->
                 <checksumPolicy>fail</checksumPolicy>
             </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
-
-    <repositories>
+        </repository>
         <repository>
             <id>google-snapshots</id>
             <name>google-snapshots</name>
@@ -129,41 +147,11 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-        <repository>
-            <id>vertispan-releases</id>
-            <name>Vertispan hosted artifacts-releases</name>
-            <url>https://repo.vertispan.com/j2cl</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>vertispan-snapshots</id>
-            <name>Vertispan Snapshots</name>
-            <url>https://repo.vertispan.com/gwt-snapshot/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>sonatype-snapshots-repo</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
+
     </repositories>
 
     <modules>
         <module>dominodo-client</module>
-        <module>dominodo-gwt</module>
         <module>dominodo-j2cl</module>
         <module>dominodo-shared</module>
         <module>dominodo-server</module>

@@ -3,6 +3,7 @@ package org.dominokit.samples;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class Task {
 
@@ -83,4 +84,17 @@ public class Task {
         return Status.ACTIVE.equals(this.getStatus());
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(title, task.title) &&
+                Objects.equals(project, task.project);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, project);
+    }
 }

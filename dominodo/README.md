@@ -3,27 +3,25 @@
 # dominodo
 Domino-ui sample todo app without using MVP framework, the purpose of this sample is to show the power of domino-ui independent from the MVP frameworks, this is not the encouraged way of writing apps with domino-ui, but rather a demonostration of pure domino-ui project.
 
-# Run as a GWT2 app
 
-## Run the sample in dev mode
+## Run the sample in J2CL dev mode
 
-1- execute `mvn clean install`
+1. execute `mvn clean install`
 
-2- in one terminal execute `mvn gwt:codeserver -pl *-gwt -am` to start the super dev mode.
+2. in one terminal execute `mvn j2cl:watc` to transpile changes as they happen in j2cl
 
-3- in another terminal execute `mvn tomcat7:run -pl *-server -am -Denv=dev`
+3. in another terminal execute `mvn tomcat7:run -pl *-server -am -Denv=dev`
 
-wait for both servers to start then access the app at `http://localhost:8080`
+4. wait for both servers to start then access the app at `http://localhost:8080`
 
-## Deploy to tomcat
+5. Change dominodo-client or dominodo-j2cl code, wait for the console to say that work is finished, and refresh the browser page
 
-Find the war file i the target folder of the `dominodo-server` module.
+## Deploy as a production compiled app
 
+1. execute `mvn clean install` to build the entire app. 
 
-# Run as a J2CL app
+2. Run it in the servlet container of your choosing:
 
-1- cd into `dominodo-j2cl`
-
-2- execute `mvn -Pdevmode`
-
-3- when the compilation is completed open out/index.html in your browser.
+   a. This could include simply running `mvn jetty:run-war` in the dominodo-server directory
+  
+   b. Alternatively, copy the `domindo-server/target/dominodo-server.war` file into a servlet container like tomcat or jetty.
