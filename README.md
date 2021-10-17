@@ -1,8 +1,13 @@
 # dominodo
-A set of todo samples for domino-ui
-Find a the Read me for each sample inside its folder.
 
-# How to build and Run : 
+### How to run 
 
-`cd` from here into `dominodo`.
-then follow the `readme` in there :smile
+- Build the project `mvn clean verify`
+
+- Super Development mode :
+
+In one terminal run  `mvn tomcat7:run -pl *-server -am -Denv=dev`
+
+In another terminal run `mvn gwt:codeserver -pl *-client -am`
+
+- For production get the war from the target folder and deploy it to your preferred application server
