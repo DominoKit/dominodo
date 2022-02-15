@@ -8,7 +8,7 @@ Domino-ui sample todo app without using MVP framework, the purpose of this sampl
 
 1. execute `mvn clean install`
 
-2. in one terminal execute `mvn j2cl:watc` to transpile changes as they happen in j2cl
+2. in one terminal execute `mvn j2cl:watch` to transpile changes as they happen in j2cl
 
 3. in another terminal execute `mvn tomcat7:run -pl *-server -am -Denv=dev`
 

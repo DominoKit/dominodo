@@ -55,7 +55,7 @@ public class EditTaskDialog implements Editor<Task>, HasTask {
                 .groupBy(fieldsGrouping)
                 .setPlaceholder("Task headline")
                 .floating()
-                .setLeftAddon(Icons.ALL.label());
+                .addLeftAddOn(Icons.ALL.label());
 
         description = TextArea.create("description")
                 .setRequired(true)
@@ -63,7 +63,7 @@ public class EditTaskDialog implements Editor<Task>, HasTask {
                 .groupBy(fieldsGrouping)
                 .setPlaceholder("Describe the task")
                 .floating()
-                .setLeftAddon(Icons.ALL.description())
+                .addLeftAddOn(Icons.ALL.description())
                 .autoSize()
                 .setRows(2);
 
@@ -76,7 +76,7 @@ public class EditTaskDialog implements Editor<Task>, HasTask {
                 .setHelperText("Should not be in the past.")
                 .setPlaceholder("Pick a Due date")
                 .floating()
-                .setLeftAddon(Icons.ALL.event());
+                .addLeftAddOn(Icons.ALL.event());
 
         priority = Select.<Priority>create("Priority")
                 .appendChild(SelectOption.create(Priority.IMPORTANT, "Important"))
@@ -85,7 +85,7 @@ public class EditTaskDialog implements Editor<Task>, HasTask {
                 .setRequired(true)
                 .setAutoValidation(true)
                 .groupBy(fieldsGrouping)
-                .setLeftAddon(Icons.ALL.low_priority());
+                .addLeftAddOn(Icons.ALL.low_priority());
 
         project = Select.<Project>create("Project")
                 .appendChild(SelectOption.create(TasksRepository.PROJECTS.get(Constants.DOMINO_UI), Constants.DOMINO_UI))
@@ -95,13 +95,13 @@ public class EditTaskDialog implements Editor<Task>, HasTask {
                 .setRequired(true)
                 .setAutoValidation(true)
                 .groupBy(fieldsGrouping)
-                .setLeftAddon(Icons.ALL.collections_bookmark())
+                .addLeftAddOn(Icons.ALL.collections_bookmark())
                 .selectAt(0);
 
         tags = TagsInput.<String>create("Tags")
                 .floating()
                 .setPlaceholder("Things related to this task")
-                .setLeftAddon(Icons.ALL.bookmark());
+                .addLeftAddOn(Icons.ALL.bookmark());
 
         modalDialog = ModalDialog.create(dialogTitle)
                 .setAutoClose(false)
