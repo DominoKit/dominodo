@@ -1,16 +1,16 @@
 package org.dominokit.samples.attachments;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.badges.Badge;
-import org.dominokit.domino.ui.chips.Chip;
-import org.dominokit.domino.ui.grid.flex.FlexItem;
-import org.dominokit.domino.ui.grid.flex.FlexLayout;
-import org.dominokit.domino.ui.icons.Icon;
-import org.dominokit.domino.ui.icons.Icons;
-import org.dominokit.domino.ui.style.Color;
-import org.dominokit.domino.ui.style.ColorScheme;
-import org.dominokit.domino.ui.utils.BaseDominoElement;
-import org.dominokit.domino.ui.utils.DominoElement;
+import org.dominokit.domino.ui.shaded.badges.Badge;
+import org.dominokit.domino.ui.shaded.chips.Chip;
+import org.dominokit.domino.ui.shaded.grid.flex.FlexItem;
+import org.dominokit.domino.ui.shaded.grid.flex.FlexLayout;
+import org.dominokit.domino.ui.shaded.icons.Icon;
+import org.dominokit.domino.ui.shaded.icons.Icons;
+import org.dominokit.domino.ui.shaded.style.Color;
+import org.dominokit.domino.ui.shaded.style.ColorScheme;
+import org.dominokit.domino.ui.shaded.utils.BaseDominoElement;
+import org.dominokit.domino.ui.shaded.utils.DominoElement;
 import org.dominokit.samples.Task;
 
 import static java.util.Objects.nonNull;

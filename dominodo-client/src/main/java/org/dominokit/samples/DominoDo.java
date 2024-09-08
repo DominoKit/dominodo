@@ -1,13 +1,20 @@
 package org.dominokit.samples;
 
-import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.icons.Icons;
-import org.dominokit.domino.ui.layout.Layout;
-import org.dominokit.domino.ui.layout.LayoutActionItem;
-import org.dominokit.domino.ui.search.Search;
-import org.dominokit.domino.ui.style.Color;
-import org.dominokit.domino.ui.style.ColorScheme;
-import org.dominokit.domino.ui.utils.DominoElement;
+import org.dominokit.domino.ui.icons.lib.Icons;
+import org.dominokit.domino.ui.layout.AppLayout;
+import org.dominokit.domino.ui.shaded.button.Button;
+import org.dominokit.domino.ui.shaded.layout.Layout;
+import org.dominokit.domino.ui.shaded.layout.LayoutActionItem;
+import org.dominokit.domino.ui.shaded.search.Search;
+import org.dominokit.domino.ui.shaded.style.Color;
+import org.dominokit.domino.ui.shaded.style.ColorScheme;
+import org.dominokit.domino.ui.shaded.utils.DominoElement;
+import org.dominokit.domino.ui.themes.DominoThemeAccent;
+import org.dominokit.domino.ui.themes.DominoThemeDefault;
+import org.dominokit.domino.ui.themes.DominoThemeLight;
+import org.dominokit.domino.ui.themes.DominoThemeManager;
+import org.dominokit.domino.ui.utils.PostfixAddOn;
+import org.dominokit.domino.ui.utils.PrefixAddOn;
 import org.dominokit.samples.menu.MenuComponent;
 import org.dominokit.samples.settings.SettingsComponent;
 import org.dominokit.samples.tasks.EditTaskDialog;
@@ -24,31 +31,46 @@ import static org.jboss.elemento.Elements.img;
 public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
 
     private final TasksRepository tasksRepository = new TasksRepository();
-    private Layout layout;
+    private AppLayout layout;
     private HasTasks currentTaskView;
 
     public void run(String title) {
 
+        DominoThemeManager.INSTANCE.apply(DominoThemeDefault.INSTANCE);
+        DominoThemeManager.INSTANCE.apply(DominoThemeLight.INSTANCE);
+        DominoThemeManager.INSTANCE.apply(DominoThemeAccent.BLUE);
         addInitialData();
 
         Search search = Search.create()
                 .onSearch(this::onSearch);
 
-        layout = Layout.create(title);
-        layout
-                .apply(self -> self.getNavigationBar().insertBefore(search, layout.getNavigationBar().firstChild()))
-                .apply(self -> self.getLeftPanel().appendChild(MenuComponent.create(DominoDo.this)))
-                .apply(self -> self.getRightPanel().appendChild(new SettingsComponent()))
-                .apply(self -> self.getTopBar()
-                        .appendChild(LayoutActionItem.create(Icons.ALL.settings())
-                                .addClickListener(evt -> layout.showRightPanel()))
-                        .appendChild(LayoutActionItem.create(Icons.ALL.search())
-                                .addClickListener(evt -> search.open())))
-                .autoFixLeftPanel()
-                .setLogo(img("./todo.png"))
-                .show(ColorScheme.BLUE);
+        layout = AppLayout.create(title);
 
-        Button addButton = Button.create(Icons.ALL.add())
+        layout
+            .setFixLeftDrawer(true)
+            .withHeader((parent, header) -> {
+                header.insertFirst(search.element());
+            })
+            .withNavBar((parent, navBar) -> {
+                navBar
+                    .appendChild(PrefixAddOn.of(img("./todo.png").element()))
+                    .appendChild(PostfixAddOn.of(Icons.magnify()
+                        .clickable()
+                        .addClickListener(evt -> search.open())
+                    ))
+                    .appendChild(PostfixAddOn.of(Icons.cog()
+                        .clickable()
+                        .addClickListener(evt -> layout.showRightDrawer())
+                    ))
+                    ;
+            })
+            .withLeftDrawer((parent, leftDrawer) -> {
+                leftDrawer.appendChild(MenuComponent.create(DominoDo.this).element());
+            });
+
+        DominoElement.body().appendChild(layout.element());
+
+        Button addButton = Button.create(org.dominokit.domino.ui.shaded.icons.Icons.ALL.add())
                 .setBackground(Color.THEME)
                 .setContent("ADD TASK")
                 .styler(style -> style.add("add-button"))
@@ -77,8 +99,9 @@ public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
     public void onAllSelected() {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listAll();
-            layout.setContent(TasksList.create("All Tasks", tasks, DominoDo.this)
-                    .update(animate));
+
+            layout.withContent((parent, content) -> content.setContent(TasksList.create("All Tasks", tasks, DominoDo.this)
+                .update(animate).element()));
         };
 
         this.currentTaskView.update(true);
@@ -88,8 +111,8 @@ public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
     public void onListResolved() {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listResolved();
-            layout.setContent(TasksList.create("Resolved", tasks, DominoDo.this)
-                    .update(animate));
+            layout.withContent((parent, content) -> content.setContent(TasksList.create("Resolved", tasks, DominoDo.this)
+                    .update(animate).element()));
         };
 
         this.currentTaskView.update(true);
@@ -99,8 +122,8 @@ public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
     public void onTodaySelected() {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listTodayTasks();
-            layout.setContent(TasksList.create("Today's tasks", tasks, DominoDo.this)
-                    .update(animate));
+            layout.withContent((parent, content) -> content.setContent(TasksList.create("Today's tasks", tasks, DominoDo.this)
+                    .update(animate).element()));
         };
 
         this.currentTaskView.update(true);
@@ -110,8 +133,8 @@ public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
     public void onNextWeekSelected() {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listNextWeekTasks();
-            layout.setContent(TasksList.create("Next week tasks", tasks, DominoDo.this)
-                    .update(animate));
+            layout.withContent((parent, content) -> content.setContent(TasksList.create("Next week tasks", tasks, DominoDo.this)
+                    .update(animate).element()));
         };
 
         this.currentTaskView.update(true);
@@ -122,8 +145,8 @@ public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
 
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listByPriority(priority);
-            layout.setContent(TasksList.create((Priority.IMPORTANT.equals(priority) ? "Important" : "Normal") + " tasks", tasks, DominoDo.this)
-                    .update(animate));
+            layout.withContent((parent, content) -> content.setContent(TasksList.create((Priority.IMPORTANT.equals(priority) ? "Important" : "Normal") + " tasks", tasks, DominoDo.this)
+                    .update(animate).element()));
         };
 
         this.currentTaskView.update(true);
@@ -133,8 +156,8 @@ public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
     public void onProjectSelected(String projectName) {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.listByProjectName(projectName);
-            layout.setContent(TasksList.create(projectName + " tasks", tasks, DominoDo.this)
-                    .update(animate));
+            layout.withContent((parent, content) -> content.setContent(TasksList.create(projectName + " tasks", tasks, DominoDo.this)
+                    .update(animate).element()));
         };
 
         this.currentTaskView.update(true);
@@ -144,8 +167,8 @@ public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
     public void onTagSelected(String tag) {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.findByTag(tag);
-            layout.setContent(TasksList.create("Search tag -"+tag, tasks, DominoDo.this)
-                    .update(animate));
+            layout.withContent((parent, content) -> content.setContent(TasksList.create("Search tag -"+tag, tasks, DominoDo.this)
+                    .update(animate).element()));
         };
 
         this.currentTaskView.update(true);
@@ -155,8 +178,8 @@ public class DominoDo implements HasMenuUiHandlers, HasTaskUiHandlers {
     private void onSearch(String searchToken) {
         this.currentTaskView = (animate) -> {
             List<Task> tasks = tasksRepository.findTasks(searchToken);
-            layout.setContent(TasksList.create("Search results", tasks, DominoDo.this)
-                    .update(animate));
+            layout.withContent((parent, content) -> content.setContent(TasksList.create("Search results", tasks, DominoDo.this)
+                    .update(animate).element()));
         };
 
         this.currentTaskView.update(true);

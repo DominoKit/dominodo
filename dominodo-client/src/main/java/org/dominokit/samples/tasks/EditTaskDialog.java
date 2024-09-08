@@ -1,16 +1,16 @@
 package org.dominokit.samples.tasks;
 
-import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.datepicker.DateBox;
-import org.dominokit.domino.ui.forms.FieldsGrouping;
-import org.dominokit.domino.ui.forms.Select;
-import org.dominokit.domino.ui.forms.SelectOption;
-import org.dominokit.domino.ui.forms.TextArea;
-import org.dominokit.domino.ui.forms.TextBox;
-import org.dominokit.domino.ui.grid.Row;
-import org.dominokit.domino.ui.icons.Icons;
-import org.dominokit.domino.ui.modals.ModalDialog;
-import org.dominokit.domino.ui.tag.TagsInput;
+import org.dominokit.domino.ui.shaded.button.Button;
+import org.dominokit.domino.ui.shaded.datepicker.DateBox;
+import org.dominokit.domino.ui.shaded.forms.FieldsGrouping;
+import org.dominokit.domino.ui.shaded.forms.Select;
+import org.dominokit.domino.ui.shaded.forms.SelectOption;
+import org.dominokit.domino.ui.shaded.forms.TextArea;
+import org.dominokit.domino.ui.shaded.forms.TextBox;
+import org.dominokit.domino.ui.shaded.grid.Row;
+import org.dominokit.domino.ui.shaded.icons.Icons;
+import org.dominokit.domino.ui.shaded.modals.ModalDialog;
+import org.dominokit.domino.ui.shaded.tag.TagsInput;
 import org.dominokit.samples.Constants;
 import org.dominokit.samples.Priority;
 import org.dominokit.samples.Project;

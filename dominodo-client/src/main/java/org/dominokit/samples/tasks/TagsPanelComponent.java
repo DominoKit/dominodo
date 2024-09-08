@@ -1,20 +1,21 @@
 package org.dominokit.samples.tasks;
 
+import static org.dominokit.domino.ui.style.DisplayCss.dui_flex;
+import static org.dominokit.domino.ui.style.SpacingCss.dui_gap_1;
+import static org.dominokit.domino.ui.utils.ElementsFactory.elements;
+
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.chips.Chip;
-import org.dominokit.domino.ui.grid.flex.FlexItem;
-import org.dominokit.domino.ui.grid.flex.FlexLayout;
+import org.dominokit.domino.ui.elements.DivElement;
+import org.dominokit.domino.ui.shaded.utils.BaseDominoElement;
 import org.dominokit.domino.ui.style.ColorScheme;
-import org.dominokit.domino.ui.utils.BaseDominoElement;
 import org.dominokit.samples.HasTaskUiHandlers;
 import org.dominokit.samples.Task;
 
-import static org.jboss.elemento.Elements.div;
-
 public class TagsPanelComponent extends BaseDominoElement<HTMLDivElement, TagsPanelComponent> {
 
-    private final FlexItem tagsContainer = FlexItem.create();
-    private HTMLDivElement element = div().element();
+    private final DivElement tagsContainer = elements.div();
+    private DivElement element = elements.div();
     private Task task;
     private HasTaskUiHandlers taskUiHandlers;
 
@@ -26,8 +27,8 @@ public class TagsPanelComponent extends BaseDominoElement<HTMLDivElement, TagsPa
         this.task = task;
         this.taskUiHandlers = taskUiHandlers;
 
-        element.appendChild(FlexLayout.create()
-                .appendChild(tagsContainer).element());
+        element.appendChild(
+            tagsContainer.addCss(dui_flex, dui_gap_1));
         init(this);
         update();
     }
@@ -35,15 +36,18 @@ public class TagsPanelComponent extends BaseDominoElement<HTMLDivElement, TagsPa
     public void update(){
         ColorScheme projectColor = ColorScheme.valueOf(task.getProject().getColor());
         task.getTags()
-                .forEach(tag -> tagsContainer.appendChild(Chip.create(tag)
+            .forEach(tag -> tagsContainer
+                .appendChild(Chip.create(tag).addCss(projectColor.color().getBackground())
                         .setTooltip("Click to search")
                         .addClickListener(evt -> taskUiHandlers.onTagSelected(tag))
-                        .addRemoveHandler(() -> task.getTags().remove(tag))
-                        .setColorScheme(projectColor)));
+                    .addOnRemoveListener((chip) -> task.getTags().remove(tag))
+                    .element()
+                )
+            );
     }
 
     @Override
     public HTMLDivElement element() {
-        return element;
+        return element.element();
     }
 }

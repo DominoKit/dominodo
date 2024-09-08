@@ -1,11 +1,11 @@
 package org.dominokit.samples.menu;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.icons.Icons;
-import org.dominokit.domino.ui.style.Color;
-import org.dominokit.domino.ui.tree.Tree;
-import org.dominokit.domino.ui.tree.TreeItem;
-import org.dominokit.domino.ui.utils.BaseDominoElement;
+import org.dominokit.domino.ui.shaded.icons.Icons;
+import org.dominokit.domino.ui.shaded.style.Color;
+import org.dominokit.domino.ui.shaded.tree.Tree;
+import org.dominokit.domino.ui.shaded.tree.TreeItem;
+import org.dominokit.domino.ui.shaded.utils.BaseDominoElement;
 import org.dominokit.samples.Constants;
 import org.dominokit.samples.HasMenuUiHandlers;
 import org.dominokit.samples.Priority;

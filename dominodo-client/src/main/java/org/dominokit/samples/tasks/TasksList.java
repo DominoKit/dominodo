@@ -1,15 +1,15 @@
 package org.dominokit.samples.tasks;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.animations.Animation;
-import org.dominokit.domino.ui.animations.Transition;
-import org.dominokit.domino.ui.grid.Column;
-import org.dominokit.domino.ui.grid.Row;
-import org.dominokit.domino.ui.header.BlockHeader;
-import org.dominokit.domino.ui.icons.Icons;
-import org.dominokit.domino.ui.layout.EmptyState;
-import org.dominokit.domino.ui.style.Color;
-import org.dominokit.domino.ui.utils.BaseDominoElement;
+import org.dominokit.domino.ui.shaded.animations.Animation;
+import org.dominokit.domino.ui.shaded.animations.Transition;
+import org.dominokit.domino.ui.shaded.grid.Column;
+import org.dominokit.domino.ui.shaded.grid.Row;
+import org.dominokit.domino.ui.shaded.header.BlockHeader;
+import org.dominokit.domino.ui.shaded.icons.Icons;
+import org.dominokit.domino.ui.shaded.layout.EmptyState;
+import org.dominokit.domino.ui.shaded.style.Color;
+import org.dominokit.domino.ui.shaded.utils.BaseDominoElement;
 import org.dominokit.samples.HasTaskUiHandlers;
 import org.dominokit.samples.Task;
 

@@ -2,8 +2,8 @@ package org.dominokit.samples.attachments;
 
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.upload.FileUpload;
-import org.dominokit.domino.ui.utils.BaseDominoElement;
+import org.dominokit.domino.ui.shaded.upload.FileUpload;
+import org.dominokit.domino.ui.shaded.utils.BaseDominoElement;
 import org.dominokit.samples.tasks.HasTask;
 
 import static org.jboss.elemento.Elements.em;

@@ -33,13 +33,24 @@
     </dependency>
     <dependency>
       <groupId>org.dominokit</groupId>
-      <artifactId>domino-ui</artifactId>
+      <artifactId>domino-ui-shaded</artifactId>
       <version>${domino.ui.version}</version>
     </dependency>
     <dependency>
       <groupId>org.dominokit</groupId>
-      <artifactId>domino-ui</artifactId>
+      <artifactId>domino-ui-shaded</artifactId>
       <version>${domino.ui.version}</version>
+      <classifier>sources</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.dominokit</groupId>
+      <artifactId>domino-ui</artifactId>
+      <version>${domino.ui_2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.dominokit</groupId>
+      <artifactId>domino-ui</artifactId>
+      <version>${domino.ui_2.version}</version>
       <classifier>sources</classifier>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.gwtproject.editor/gwt-editor -->

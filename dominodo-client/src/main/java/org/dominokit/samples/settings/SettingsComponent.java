@@ -1,17 +1,17 @@
 package org.dominokit.samples.settings;
 
 import elemental2.dom.HTMLDivElement;
-import org.dominokit.domino.ui.cards.Card;
-import org.dominokit.domino.ui.forms.SwitchButton;
-import org.dominokit.domino.ui.grid.flex.FlexItem;
-import org.dominokit.domino.ui.grid.flex.FlexLayout;
-import org.dominokit.domino.ui.grid.flex.FlexWrap;
-import org.dominokit.domino.ui.header.BlockHeader;
-import org.dominokit.domino.ui.style.ColorScheme;
-import org.dominokit.domino.ui.style.Style;
-import org.dominokit.domino.ui.style.Styles;
-import org.dominokit.domino.ui.themes.Theme;
-import org.dominokit.domino.ui.utils.BaseDominoElement;
+import org.dominokit.domino.ui.shaded.cards.Card;
+import org.dominokit.domino.ui.shaded.forms.SwitchButton;
+import org.dominokit.domino.ui.shaded.grid.flex.FlexItem;
+import org.dominokit.domino.ui.shaded.grid.flex.FlexLayout;
+import org.dominokit.domino.ui.shaded.grid.flex.FlexWrap;
+import org.dominokit.domino.ui.shaded.header.BlockHeader;
+import org.dominokit.domino.ui.shaded.style.ColorScheme;
+import org.dominokit.domino.ui.shaded.style.Style;
+import org.dominokit.domino.ui.shaded.style.Styles;
+import org.dominokit.domino.ui.shaded.themes.Theme;
+import org.dominokit.domino.ui.shaded.utils.BaseDominoElement;
 import org.jboss.elemento.EventType;
 
 import static org.jboss.elemento.Elements.div;

@@ -1,8 +1,8 @@
 package org.dominokit.samples.attachments;
 
-import org.dominokit.domino.ui.button.Button;
-import org.dominokit.domino.ui.icons.Icons;
-import org.dominokit.domino.ui.modals.BaseModal;
+import org.dominokit.domino.ui.shaded.button.Button;
+import org.dominokit.domino.ui.shaded.icons.Icons;
+import org.dominokit.domino.ui.shaded.modals.BaseModal;
 
 import static java.util.Objects.nonNull;
 
@@ -12,7 +12,7 @@ public class AttachDialogComponent extends BaseModal<AttachDialogComponent> {
         super("Attach files");
         init(this);
         setSize(ModalSize.LARGE);
-        style.add("task-modal");
+        style().add("task-modal");
         appendChild(fileUploadComponent);
         this.appendFooterChild(Button.create(Icons.ALL.clear())
                 .linkify()
